@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>RepasoRecuperacionJDBC_MONGO</groupId>
+  <artifactId>RepasoRecuperacionJDBC_MONGO</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+<dependencies>
+ <!--MYSQL (UD2_2A)-->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.28</version>
+</dependency>
+<!--MVC (UD2_2B)-->
+<dependency>
+    <groupId>commons-dbcp</groupId>
+    <artifactId>commons-dbcp</artifactId>
+    <version>1.4</version>
+</dependency>
+
+<!--MONGODB (UD1_1B)-->
+<dependency>
+	<groupId>org.mongodb</groupId>
+	<artifactId>mongo-java-driver</artifactId>
+	<version>3.12.7</version>
+</dependency>
+
+<!--JSON (UD1_1B)-->
+	<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+<!--GSON (UD1_1B)-->
+		<dependency>
+		<groupId>com.google.code.gson</groupId>
+		<artifactId>gson</artifactId>
+		<version>2.8.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.utilesMaven</groupId>
+			<artifactId>UtilesMaven</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+</dependencies>
+
+
+</project>
