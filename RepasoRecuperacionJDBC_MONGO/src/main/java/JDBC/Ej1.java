@@ -15,7 +15,7 @@ public class Ej1 {
         Scanner datos = new Scanner(System.in);
 
         try {
-            conJdbc = new ConexionJdbc("ConexionJDBC/Conectar_BD");
+            conJdbc = new ConexionJdbc("Configuracion/propiedadesInventario.txt");
             conJdbc.conectar();
 
             System.out.println("Inserta un curso");

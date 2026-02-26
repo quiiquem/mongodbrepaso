@@ -7,6 +7,7 @@ import java.util.List;
 import excepciones.BusinessException;
 import jdbc.ConexionJdbc;
 import POJOS.Alumno;
+import POJOS.Practica;
 import POJOS.Presentan;
 import dao.DaoGenerico;
 
@@ -16,6 +17,38 @@ import dao.DaoGenerico;
  */
 public class DaoPresentan extends DaoGenerico<Presentan, String> {
 
+	public List<Presentan> buscarPorAlumno(Integer codAl) throws BusinessException {
+	    List<Presentan> result = new ArrayList<>();
+	    Connection con = ConexionJdbc.getConnection();
+	    PreparedStatement pstm = null;
+	    ResultSet rs = null;
+	    try {
+	        String sql = "SELECT * FROM presentan WHERE CodAl = ?";
+	        pstm = con.prepareStatement(sql);
+	        pstm.setInt(1, codAl);
+	        rs = pstm.executeQuery();
+	        while (rs.next()) {
+	            Presentan p = new Presentan();
+	            p.setCodAl(rs.getInt("CodAl"));
+	            p.setCodP(rs.getString("CodP"));
+	            
+	            // Nota puede ser NULL, para evitar que pete 
+	            Object notaObj = rs.getObject("Nota");
+	            p.setNota(notaObj != null ? ((Number) notaObj).intValue() : null);
+	            
+	            p.setFechaEntrega(rs.getDate("Fecha_entrega"));
+	            result.add(p);
+	        }
+	        return result;
+	    } catch (SQLException ex) {
+	        throw new BusinessException("Error al consultar presentan");
+	    } finally {
+	        ConexionJdbc.cerrar(pstm);
+	    }
+	}
+	
+	
+	
     @Override
     public void grabar(Presentan pr) throws BusinessException {
         Connection con = ConexionJdbc.getConnection();

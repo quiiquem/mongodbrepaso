@@ -5,11 +5,11 @@ import java.util.*;
 import excepciones.BusinessException;
 import jdbc.ConexionJdbc;
 import POJOS.Alumno;
+import POJOS.Presentan;
 import dao.DaoGenerico;
 
 public class DaoAlumno extends DaoGenerico<Alumno, Integer> {
-	
-	
+		
     @Override
     public void grabar(Alumno a) throws BusinessException {
         Connection con = ConexionJdbc.getConnection();
